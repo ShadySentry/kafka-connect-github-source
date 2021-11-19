@@ -74,14 +74,24 @@ public class GitHubSourceTask extends SourceTask {
         final ArrayList<SourceRecord> records = new ArrayList<>();
         JSONArray issues = gitHubHttpAPIClient.getNextIssues(nextPageToVisit, nextQuerySince);
         // we'll count how many results we get with i
-        int i = 0;
-        for (Object obj : issues) {
+//        int i = 0;
+//        for (Object obj : issues) {
+//            Issue issue = Issue.fromJson((JSONObject) obj);
+//            SourceRecord sourceRecord = generateSourceRecord(issue);
+//            records.add(sourceRecord);
+//            i += 1;
+//            lastUpdatedAt = issue.getUpdatedAt();
+//        }
+        int i=0;
+        for (int index=0;index<=issues.length();index++) {
+            Object obj = issues.get(index);
             Issue issue = Issue.fromJson((JSONObject) obj);
             SourceRecord sourceRecord = generateSourceRecord(issue);
             records.add(sourceRecord);
             i += 1;
             lastUpdatedAt = issue.getUpdatedAt();
         }
+
         if (i > 0) log.info(String.format("Fetched %s record(s)", i));
         if (i == 100){
             // we have reached a full batch, we need to get the next one

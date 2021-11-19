@@ -10,7 +10,8 @@
     <name>kafka-connect-github-source</name>
 
     <properties>
-        <kafka.version>0.10.2.0-cp1</kafka.version>
+<!--        <kafka.version>0.10.2.0-cp1</kafka.version>-->
+        <kafka.version>0.10.2.0</kafka.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -19,6 +20,7 @@
             <groupId>org.apache.kafka</groupId>
             <artifactId>connect-api</artifactId>
             <version>${kafka.version}</version>
+<!--            <version>0.10.2.0</version>-->
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -37,7 +39,8 @@
         <dependency>
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
-            <version>1.4.9</version>
+            <version>1.4.8</version>
+<!--            <version>1.4.8</version>-->
         </dependency>
 
     </dependencies>
